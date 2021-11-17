@@ -22,3 +22,4 @@ Sharper.indiv1<-SharpeRatio(R=retornados, Rf=0, FUN = "StDev") #Obtengamos el ra
 #Optimizamos ahora el portafolio
 
 
+#Optimizando desde otro equipo en R
