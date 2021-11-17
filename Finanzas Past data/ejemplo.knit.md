@@ -1,0 +1,40 @@
+---
+title: "El libro si forma"
+author: "FVB"
+date: "abril 2019"
+keywords: "como no tener forma"
+geometry:
+- top=1in
+- bottom=1in
+- right=0.5in
+- left=1in
+graphics: yes
+lang: es
+link-citations: yes
+linkcolor: blue
+documentclass: article
+papersize: a5
+citecolor: blue
+urlcolor: blue
+fontsize: 12pt
+header-includes:
+- \usepackage{graphicx}
+- \usepackage{fancyhdr}
+- \pagestyle{fancy}
+- \fancyhead[L]{\slshape \rightmark}
+- \fancyfoot[R]{\textit{\scriptsize www.enrdados.net }}
+- \fancyfoot[C]{\thepage}
+- \renewcommand{\headrulewidth}{0.2pt}
+- \usepackage{fontspec}
+- \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+- \setmainfont{Courier}
+- \setmonofont{Times}
+output:
+  pdf_document: 
+    latex_engine: xelatex
+    number_sections: yes
+    toc: yes
+    toc_depth: 2
+editor_options: 
+  chunk_output_type: console
+---

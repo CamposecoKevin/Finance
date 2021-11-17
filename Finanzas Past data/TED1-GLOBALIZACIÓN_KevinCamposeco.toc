@@ -1,0 +1,4 @@
+\contentsline {section}{El Fin de la Globalización}{1}{section*.2}%
+\contentsline {section}{Finanzas Internacionales}{1}{section*.3}%
+\contentsline {subsubsection}{Kevin Camposeco 1704415}{1}{section*.4}%
+\contentsline {subsection}{R Markdown}{1}{section*.5}%

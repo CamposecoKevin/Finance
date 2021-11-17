@@ -1,0 +1,50 @@
+---
+output: pdf_document
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# **El Fin de la globalización**  
+**Kevin Camposeco** *1704415*     
+**Finanzas Internacionales**  
+
+
+# Resumen  
+
+En la charla **[The end of globalization](https://www.ted.com/talks/mike_o_sullivan_the_end_of_globalization_and_the_beginning_of_something_new/transcript)** del económista Micheal O´Sullivan, enmarca dos cosas muy imporntantes, el fin de la globalización y el nuevo orden basado en valores comunes.  
+
+Primero, la globalización es sabido que vino y hizo cambiar muchos comportamientos a nivel del orbe, países
+aumentaban su riqueza, países con más democracia. Pero este orden va decayendo tomando las palabras del autor
+***"se encuentra en su lecho de muerte"*** y esto por la desigualdad y los niveles récord de endeudamiento,
+sumado a una mala gestión por parte de las autoridades de cada país. Pero países como Irlanda y Países bajos 
+a sabido poder sacarle provecho al fenómeno de la globalización, al fomentar la igualdad en ingresos
+a través de impuestos altos y programas de bienestar social.
+
+Y ahora, en el año 2020 por la pandemia, vino a exponer las debilidades del orden mundial globalizado,
+colocando como ejemplo, en las crisis anteriores existía comités dirigidos a subsanar tales crisis, pero
+ahora estas colaboraciones no han existido, aun sabiendo que se tiene un enemigo en común.
+
+Por otro lado, tenemos el nuevo orden basado en valores, pero en las propias palabras del autor, ***"aún está en proceso "***,
+pero países como, Escocia, Islandia, y Nueva Zelanda, van uniendo sus fuerzas y comparten el mismo valor como: "Gobiernos del Bienestar Económico: cuyo objetivo es promover el bienestar ecológico, social, y crecimiento económico", y así otros países
+se darán cuenta de que tienen más cosas en común, y buscarán realizar planes estratégicos para impulsarse.
+
+
+# Análisis
+
+La globalización si vino a realizar cambios vertiginosos, y uno de los cambios que más destacaría es haber permitido 
+los mercados abiertos, y tomando un sector en especial la tecnología, permitió que si tu país no podía crear esa tecnología tenías la oportunidad  de traerlo del que si lo producía, y eso supone un gran cambio en la productividad de países.
+
+Por otro lado, que la Globalización está en decadencia lo creo, desde que comenzaron a hablar de la era de la información o informática de como esta tecnología iba a cambiar la forma en que se haría la cosas, hoy en la actualidad lo estamos viendo, bitcoin moneda de pago
+sin una entidad central, y la tecnología en los países emergente venia lento, pero por la pandemia vino a acelerar la adopción de estas 
+tecnologías.
+
+Pero al mencionar este nuevo orden en la que los países buscaran compartir valores, me hace pensar en algo que esta sucediente en Centroamérica tal vez ya se venía realizando, pero justamente las Bolsas de Valores de cada país se están integrando y van abriendo sus fronteras para realizar negocios, cuyos objetivos económicos van en colaboración. Por lo tanto, creo que si vamos en ese rumbo, el triángulo norte también deberá buscar esos valores comunes que permitan ese crecimiento en los diferentes ámbitos.
+
+
+
+
+
+
+
+

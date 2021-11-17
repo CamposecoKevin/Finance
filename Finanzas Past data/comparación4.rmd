@@ -1,0 +1,28 @@
+---
+title: "Comparación de Acciones"
+author: "Kevin Camposeco"
+date: "29/1/2021"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Cuadro comparativo de indicadores de 4 acciones:
+* TESLA
+* ROYAL CARABEEAN
+* PFIZER
+* AMAZON
+
+***
+Indicador    | TSLA          |     RCL        | PFE           | AMNZ        
+-------------| ------------- | -------------  | ------------- | -------------
+R.promedio anual   | Cell 2        | Table Cell     | Cell 2        | Cell 2
+R.último mes       | Cell 4        | Cell 3         | Cell 4        | Cell 4
+V.promedio diario   | Cell 2        | Table Cell     | Cell 2        | Cell 2
+Volatilidad anual       | Cell 4        | Cell 3         | Cell 4        | Cell 4
+
+***
+
+
