@@ -5,21 +5,7 @@ library(portfolioAnalytics)
 
 precios <- NULL
 
-tickers <- c("AMZN", "AAPL", "NFLX", "FB")
+tickers <- c("AMZN", "AAPL", "NFLX", "FB","SPY")
 
-for (nom in tickers) {
-    precios <- cbind(precios,getSymbols(src="yahoo", from ="2016-01-02", to ="2019-06-01", periodicity = "daily", auto.assign=FALSE)[,c(4)])
-}
+getSymbols(tickers, src="yahoo", from ="2021-01-01", to ="2021-11-17", periodicity = "daily",auto.assign=TRUE)[,c(4)]
 
-options(scipen = 999)
-retornados <- na.omit(ROC(precios))
-ret<- c("AMZN", "AAPL", "NFLX", "FB")
-colnames(retornados)<- ret
-
- 
-Sharper.indiv1<-SharpeRatio(R=retornados, Rf=0, FUN = "StDev") #Obtengamos el ratio de sharpe de cada activo
-
-#Optimizamos ahora el portafolio
-
-
-#Optimizando desde otro equipo en R

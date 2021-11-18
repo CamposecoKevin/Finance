@@ -110,7 +110,7 @@ Coef_W <- (sdWALMART_3/meanWALMART_3)*100
 date <- "2019-3-2"  
 tickers <- c("GFNORTEO.MX", "TV", "WALMEX.MX", "BBD", "KOF")       
 
-portfolioPrices <- NULL
+portfolioPrices <- na.omit()
 for(ticker in tickers) {
     portfolioPrices <- cbind(portfolioPrices, getSymbols.yahoo(ticker,
                                                                from="2019-3-2", periodicity="daily",auto.assign=FALSE)[,6])  
