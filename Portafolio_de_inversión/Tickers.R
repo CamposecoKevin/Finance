@@ -17,23 +17,24 @@ library(PortfolioAnalytics)
 
 
 #Descargar datos de empresas a analizar
-rm(list = ls())
 
-precios <- NULL
+tickers <- c("AMZN", "AAPL", "NFLX", "FB", "TSLA", "GOOGL", "SPY")       
 
-tickers <- c("SPY", "AAPL", "NFLX", "FB", "TSLA")
+portfolioPrices <- NULL
 
-for (ticker in tickers) {
-    precios <- cbind(precios,getSymbols.yahoo(src="yahoo", from ="2021-01-01", to ="2021-11-16", periodicity = "daily", auto.assign=FALSE)[,6])
+for(ticker in tickers) {
+  portfolioPrices <- cbind(portfolioPrices, getSymbols.yahoo(ticker,
+  from="2021-01-01", to = "2021-11-18", periodicity="daily",auto.assign=FALSE)[,6])
 }
 
 
-??getSymbols.yahoo
+datos <- portfolioPrices
+
+#Ver los datos descargados
+view(portfolioPrices)
 
 
-#Estos para identificar el archivo como nuevo
-
-
+561290
 
 
 
