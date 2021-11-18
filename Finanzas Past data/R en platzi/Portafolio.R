@@ -175,19 +175,18 @@ CAPM.beta(portafolioreturns,benchkmarkreturns, 0.035/252)
 table.AnnualizedReturns(portafolioreturns)
 
 
-
-
-
 #CLASE NO. 19 Optimización del portafolio.
 
-portafolio<-portfolio.spec(colnames(portafolioreturns))
+(portafolio<-portfolio.spec(colnames(portafolioreturns)))
 
-portafolio <- add.constraint(portafolio, type = "weight_sum", min_sum = 1, max_sum =1)
+(portafolio <- add.constraint(portafolio, type = "weight_sum", min_sum = 1, max_sum =1))
 
 
-portafolio <- add.constraint(portafolio, type = "box", min= .10, max = .40)
-portafolio <- add.objective(portafolio, type = "return", name = "mean")
-portafolio <- add.objective(portafolio,type = "risk", name = "StdDev")
+(portafolio <- add.constraint(portafolio, type = "box", min= .10, max = .40))
+(portafolio <- add.objective(portafolio, type = "return", name = "mean"))
+(portafolio <- add.objective(portafolio,type = "risk", name = "StdDev"))
+
+portafolio$call
 
 
 install.packages("GenSA")
@@ -199,6 +198,9 @@ library(GenSA)
 
 OptiPortafolio <- optimize.portfolio(portafolioreturns, portafolio, optimize_method = "DEoptim")
 View(OptiPortafolio)
+
+
+??DEoptim
 
 
 OptiPortafolio
@@ -233,4 +235,36 @@ library(quantmod)
 library(xts)
 library(zoo)
 
+
+install.packages("pander")
+library("pander")
+
+options(scipen = 999)
+
+retornos <- na.omit(ROC(Empresas))
+
+#para asignar el nombre de columanas
+ret <- c("AMZN", "AAPL", "NFLX", "FB", "TSLA", "GOOGL")
+
+#cambiar el nombre para la data set retornos
+colnames(retornos) <- ret
+
+#analizando el sharpe
+sharpe.indiv1 <- SharpeRatio(R= retornos, Rf=0, FUN= "StdDev")
+
+
+#optimizar el portafolio
+
+init.portfolio <- portfolio.spec(assets = colnames(retornos))
+
+
+init.portfolio <-  add.constraint(portfolio = init.portfolio,type = "weight_sum", min_sum =1, max_sum =1)
+
+Distribución <- pander(init.portfolio$assets) 
+
+init.portfolio <-  add.constraint(portfolio = init.portfolio,type = "box",min=c(0.2,0.2,-1,-1),max=c(0.2,0.2,2,2))
+
+init.portfolio <-  add.constraint(portfolio = init.portfolio,type = "box",min=c(0.2,0.2,-1,-1),max=c(0.2,0.2,2,2))
+
+pander(head(sharpe.indiv1))
 
