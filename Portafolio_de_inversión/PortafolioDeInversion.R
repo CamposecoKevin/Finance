@@ -14,8 +14,6 @@ library(PerformanceAnalytics)
 library(PortfolioAnalytics)
 
 
-install.packages("tseries")
-install.packages("timeSeries")
 library(knitr)
 library(kableExtra)
 library(dplyr)
@@ -56,8 +54,16 @@ head(Empresas,10)
 tail(Empresas,10)
 
 
-# 4- rendimientos de las empresas analizadas --------------------------------------------
+
+# Ver en gráficos nivel precios ---------------------------------------------------------
+
+plot(Empresas, col=Empresas, xlab="Fecha", ylab="AdjClose"); title(main="Evolución S&P 5OO") 
+
+  # 4- rendimientos de las empresas analizadas --------------------------------------------
 (RetornoDePortafolio <- na.omit(ROC(Empresas)))
+
+plot(RetornoDePortafolio, col="Blue", xlab="Fecha", ylab="Retornos"); title(main="Retornos del Portafolio")
+
 
 # 5- Comparar con el indice SPY los rendimientos -----------------------------
 #descargar datos de SPY
@@ -67,6 +73,7 @@ MarketIndiceSpy<- getSymbols.yahoo("SPY",
 # 6- rendimientos de las empresas analizadas --------------------------------------------
 (RetornoDeMarket <- na.omit(ROC(MarketIndiceSpy)))
 
+plot(RetornoDeMarket, col="Black", xlab="Fecha", ylab="Retornos"); title(main="Retornos del Portafolio")
 
 
 # 7- Gráfica de los retornos ----------------------------------------------
