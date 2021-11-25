@@ -57,12 +57,12 @@ tail(Empresas,10)
 
 # Ver en gráficos nivel precios ---------------------------------------------------------
 
-plot(Empresas, col=Empresas, xlab="Fecha", ylab="AdjClose"); title(main="Evolución S&P 5OO") 
+plot(Empresas, main=""  ,col=Empresas, xlab="Fecha", ylab="AdjClose"); title(main="Evolución S&P 5OO") 
 
   # 4- rendimientos de las empresas analizadas --------------------------------------------
 (RetornoDePortafolio <- na.omit(ROC(Empresas)))
 
-plot(RetornoDePortafolio, col="Blue", xlab="Fecha", ylab="Retornos"); title(main="Retornos del Portafolio")
+plot(RetornoDePortafolio,col="Blue", xlab="Fecha", ylab="Retornos"); title(main="Retornos del Portafolio")
 
 
 # 5- Comparar con el indice SPY los rendimientos -----------------------------
@@ -99,7 +99,38 @@ table.AnnualizedReturns(RetornoDePortafolio)
 
 
 
-# 10- Optimización de portafolio ------------------------------------------
+
+# Matrix de covarianzas ---------------------------------------------------
+
+#Riesgos buscando la varianzas esta formula va para todos
+(var(RetornoDePortafolio$AMZN.Adjusted)*100)
+(var(RetornoDePortafolio$AAPL.Adjusted)*100)
+(var(RetornoDePortafolio$NFLX.Adjusted)*100)
+(var(RetornoDePortafolio$FB.Adjusted)*100)
+(var(RetornoDePortafolio$TSLA.Adjusted)*100)
+(var(RetornoDePortafolio$GOOGL.Adjusted)*100)
+
+#matrix de covarianza
+pander(Cov <- cov(RetornoDePortafolio)*100)
+
+#matrix de correlación
+pander(corr <- cor(RetornoDePortafolio) * 100)
+
+
+#mapa de calor con pheatmap
+
+install.packages("pheatmap")
+library(pheatmap)
+
+pheatmap(corr,
+         display_numbers = TRUE,
+         number_color = "black",
+         cluster_cols = FALSE,
+         cluster_rows = FALSE,
+         fontsize_number = 8)
+
+
+# - Optimización de portafolio ------------------------------------------
 (portafolio1<-portfolio.spec(colnames(RetornoDePortafolio)))
 
 
@@ -116,10 +147,30 @@ distrCodi <- pander(portafolio1$assets)
 
 
 
+#optimización de markowitz
+espcartera<-portfolioSpec()
+
+setRiskFreeRate(espcartera)<- -0.001 ##Rentabilidad Activo Libre de Riesgo
+setNFrontierPoints(espcartera) <- 20
+constraints="LongOnly"
+
+#calcular la frotera
+Frontera <- portfolioFrontier(as.timeSeries(RetornoDePortafolio),spec=espcartera,constraints )
+Frontera
+
+#Grafica del portafolio 
+
+frontierPlot(Frontera)
+grid()
+tangencyPoints(Frontera, pch = 19, col = "red", cex=2)
+tangencyLines(Frontera, col="darkgreen", pch=19, cex=2)
+minvariancePoints(Frontera, col="blue", pch=19, cex=2)
+monteCarloPoints(Frontera, mCsteps=500, col="green", cex=0.001)
 
 
 
+col <- qualiPalette(ncol(RetornoDePortafolio), "Dark2")
+weightsPlot(Frontera, col=col)
 
 
-
-
+pander(col)
