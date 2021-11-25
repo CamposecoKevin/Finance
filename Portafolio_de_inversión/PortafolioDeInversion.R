@@ -147,6 +147,7 @@ distrCodi <- pander(portafolio1$assets)
 
 
 
+
 #optimización de markowitz
 espcartera<-portfolioSpec()
 
@@ -174,3 +175,32 @@ weightsPlot(Frontera, col=col)
 
 
 pander(col)
+
+
+#portafolio eficiente
+efPortfolio <- efficientPortfolio(as.timeSeries(RetornoDePortafolio),espcartera,constraints)
+efPortfolio
+
+
+#ratio indice sharpe
+
+tgPortfolio <- tangencyPortfolio(as.timeSeries(RetornoDePortafolio),espcartera,constraints)
+tgPortfolio
+
+
+
+#Distribución para peso para invertir en cada activo
+
+weightsPie(efPortfolio, col=col )
+mtext(text = "Portafolio eficiente", side = 3, line = 1.5,
+      font = 2, cex = 0.7, adj = 0)
+
+
+#Distribución de peso co nmayo riesgo y rendiemiento
+weightsPie(tgPortfolio, col=col)
+mtext(text = "Portafolio tangente", side = 3, line = 1.5,
+      font = 2, cex = 0.7, adj = 0)
+
+
+
+
